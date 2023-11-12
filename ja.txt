@@ -1,0 +1,4 @@
+So what we will do in this project is we will crfeate a simple project of shell based on thompsons shell model. this shell will do what a shell d
+does with some restrictions 
+If ALX was a better organization with an actual methdology instead of saying just google it maybe i could have done a fully fledged shell
+and the shell wouldn't be so simple after all
