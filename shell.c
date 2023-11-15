@@ -29,9 +29,9 @@ int main(int argc, char *argv[], char *envp[])
 		free(way_mando);
 		write(STDOUT_FILENO, "SHello> ", 8);
 		lineq = getline(&buffy, &buffq, stdin);
+
 		if (linq < 0)
 			break;
-		info.ln_count++;
 		if (buffy[lineq - 1] == '\n')
 			buffy[lineq - 1] = '\0';
 		mando = split_it(buffy);
@@ -47,8 +47,6 @@ int main(int argc, char *argv[], char *envp[])
 		else
 			run_it(way_mando, mando);
 	}
-	if (linesize < 0 && flags.interactive)
-		write(STDERR_FILENO, "\n", 1);
-	free(line);
+	free(buffy);
 	return (0);
 }
