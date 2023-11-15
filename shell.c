@@ -27,25 +27,25 @@ int main(int argc, char *argv[], char *envp[])
 		slay_buffy(mando);
 		slay_buffy(ways);
 		free(way_mando);
-		prompt_user();
-		linesize = getline(&line, &bufsize, stdin);
-		if (linesize < 0)
+		write(STDOUT_FILENO, "SHello> ", 8);
+		lineq = getline(&buffy, &buffq, stdin);
+		if (linq < 0)
 			break;
 		info.ln_count++;
-		if (line[linesize - 1] == '\n')
-			line[linesize - 1] = '\0';
-		command = tokenizer(line);
-		if (command == NULL || *command == NULL || **command == '\0')
+		if (buffy[lineq - 1] == '\n')
+			buffy[lineq - 1] = '\0';
+		mando = split_it(buffy);
+		if (mando == NULL || *mando == NULL || **mando == '\0')
 			continue;
-		if (checker(command, line))
+		if (is_it_builtin(mando, buffy))
 			continue;
-		path = find_path();
-		paths = tokenizer(path);
-		pathcommand = test_path(paths, command[0]);
-		if (!pathcommand)
-			perror(av[0]);
+		de_way = show_me_de_way();
+		ways = split_it(de_way);
+		way_mando = found_de_way(ways, mando[0]);
+		if (!way_mando)
+			perror(argv[0]);
 		else
-			execution(pathcommand, command);
+			run_it(way_mando, mando);
 	}
 	if (linesize < 0 && flags.interactive)
 		write(STDERR_FILENO, "\n", 1);
