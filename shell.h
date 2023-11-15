@@ -17,7 +17,7 @@ struct builtin
 } builtin;
 
 /* environment variables */
-extern char **habitat;
+extern char **environ;
 extern __sighandler_t signal(int __sig, __sighandler_t __handler);
 
 /*shell function prototypes*/

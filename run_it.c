@@ -11,7 +11,7 @@ void run_it(char *mando, char **argv)
 {
 	pid_t pid;
 	int st;
-	char **ev = habitat;
+	char **ev = environ;
 
 	pid = fork();
 	if (pid < 0)

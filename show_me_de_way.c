@@ -8,7 +8,7 @@
 char *show_me_de_way(void)
 {
 	int i;
-	char **ev = habitat;
+	char **ev = environ;
 	char *de_way = NULL;
 
 	while (*ev)
