@@ -2,8 +2,7 @@
 
 /**
  * get_environ - returns the string array copy of our environ
- * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
+ * @info: Structure containing potential argument
  * Return: Always 0
  */
 char **get_environ(info_t *info)
@@ -19,50 +18,47 @@ char **get_environ(info_t *info)
 
 /**
  * _unsetenv - Remove an environment variable
- * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
- *  Return: 1 on delete, 0 otherwise
+ * @info: Structure containing potential argument
+ * Return: 1 on delete, 0 otherwise
  * @var: the string env var property
  */
 int _unsetenv(info_t *info, char *var)
 {
 	list_t *node = info->env;
-	size_t i = 0;
-	char *p;
+	size_t u = 0;
+	char *x;
 
 	if (!node || !var)
 		return (0);
 
 	while (node)
 	{
-		p = starts_with(node->str, var);
-		if (p && *p == '=')
+		x = starts_with(node->str, var);
+		if (x && *x == '=')
 		{
-			info->env_changed = delete_node_at_index(&(info->env), i);
-			i = 0;
+			info->env_changed = delete_node_at_index(&(info->env), u);
+			u = 0;
 			node = info->env;
 			continue;
 		}
 		node = node->next;
-		i++;
+		u++;
 	}
 	return (info->env_changed);
 }
 
 /**
- * _setenv - Initialize a new environment variable,
- *             or modify an existing one
- * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
+ * _setenv - Initialize or mod
+ * @info: Structure containing potential arguments
  * @var: the string env var property
  * @value: the string env var value
- *  Return: Always 0
+ * Return: Always 0
  */
 int _setenv(info_t *info, char *var, char *value)
 {
 	char *buf = NULL;
 	list_t *node;
-	char *p;
+	char *x;
 
 	if (!var || !value)
 		return (0);
@@ -76,8 +72,8 @@ int _setenv(info_t *info, char *var, char *value)
 	node = info->env;
 	while (node)
 	{
-		p = starts_with(node->str, var);
-		if (p && *p == '=')
+		x = starts_with(node->str, var);
+		if (x && *x == '=')
 		{
 			free(node->str);
 			node->str = buf;
