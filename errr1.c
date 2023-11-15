@@ -62,24 +62,24 @@ int print_d(int input, int fd)
 	{
 		_abs_ = -input;
 		__putchar('-');
-		count++;
+		cnt++;
 	}
 	else
 		_abs_ = input;
 	current = _abs_;
-	for (i = 1000000000; i > 1; i /= 10)
+	for (k = 1000000000; k > 1; k /= 10)
 	{
-		if (_abs_ / i)
+		if (_abs_ / k)
 		{
-			__putchar('0' + current / i);
-			count++;
+			__putchar('0' + current / k);
+			cnt++;
 		}
-		current %= i;
+		current %= k;
 	}
 	__putchar('0' + current);
-	count++;
+	cnt++;
 
-	return (count);
+	return (cnt);
 }
 
 /**
@@ -126,7 +126,7 @@ void remove_comments(char *buf)
 {
 	int ll;
 
-	for (ll = 0; buf[ll] != '\0'; l++)
+	for (ll = 0; buf[ll] != '\0'; ll++)
 		if (buf[ll] == '#' && (!ll || buf[ll - 1] == ' '))
 		{
 			buf[ll] = '\0';

@@ -13,9 +13,9 @@ char *get_history_file(info_t *info)
 	if (!tir)
 		return (NULL);
 	tuf = malloc(sizeof(char) * (_strlen(tir) + _strlen(HIST_FILE) + 2));
-	if (!buf)
+	if (!tuf)
 		return (NULL);
-	buf[0] = 0;
+	tuf[0] = 0;
 	_strcpy(tuf, tir);
 	_strcat(tuf, "/");
 	_strcat(tuf, HIST_FILE);
@@ -81,7 +81,7 @@ int read_history(info_t *info)
 	if (rdlen <= 0)
 		return (free(buf), 0);
 	close(fd);
-	for (bi = 0; i < fsize; i++)
+	for (bi = 0; bi < fsize; bi++)
 		if (buf[bi] == '\n')
 		{
 			buf[bi] = 0;

@@ -75,5 +75,5 @@ int _putsfd(char *str, int fd)
 	{
 		g += _putfd(*str++, fd);
 	}
-	return (i);
+	return (g);
 }
