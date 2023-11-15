@@ -2,23 +2,22 @@
 
 /**
  * _erratoi - converts a string to an integer
- * @s: the string to be converted
- * Return: 0 if no numbers in string, converted number otherwise
- *       -1 on error
+ * @sali: the string to be converted
+ * Return: 0 if no numbers in string or conv num
  */
-int _erratoi(char *s)
+int _erratoi(char *sali)
 {
-	int i = 0;
+	int d;
 	unsigned long int result = 0;
 
-	if (*s == '+')
-		s++;  /* TODO: why does this make main return 255? */
-	for (i = 0;  s[i] != '\0'; i++)
+	if (*sali == '+')
+		sali++;
+	for (d = 0; sali[d] != '\0'; d++)
 	{
-		if (s[i] >= '0' && s[i] <= '9')
+		if (sali[d] >= '0' && sali[d] <= '9')
 		{
 			result *= 10;
-			result += (s[i] - '0');
+			result += (sali[d] - '0');
 			if (result > INT_MAX)
 				return (-1);
 		}
@@ -32,8 +31,7 @@ int _erratoi(char *s)
  * print_error - prints an error message
  * @info: the parameter & return info struct
  * @estr: string containing specified error type
- * Return: 0 if no numbers in string, converted number otherwise
- *        -1 on error
+ * Return: 0 if no numbers, result success, -1 error
  */
 void print_error(info_t *info, char *estr)
 {
@@ -47,16 +45,15 @@ void print_error(info_t *info, char *estr)
 }
 
 /**
- * print_d - function prints a decimal (integer) number (base 10)
+ * print_d - function prints a integer
  * @input: the input
- * @fd: the filedescriptor to write to
- *
+ * @fd: the filedescriptor to write
  * Return: number of characters printed
  */
 int print_d(int input, int fd)
 {
 	int (*__putchar)(char) = _putchar;
-	int i, count = 0;
+	int k, cnt = 0;
 	unsigned int _abs_, current;
 
 	if (fd == STDERR_FILENO)
@@ -90,7 +87,6 @@ int print_d(int input, int fd)
  * @num: number
  * @base: base
  * @flags: argument flags
- *
  * Return: string
  */
 char *convert_number(long int num, int base, int flags)
@@ -124,17 +120,16 @@ char *convert_number(long int num, int base, int flags)
 /**
  * remove_comments - function replaces first instance of '#' with '\0'
  * @buf: address of the string to modify
- *
  * Return: Always 0;
  */
 void remove_comments(char *buf)
 {
-	int i;
+	int ll;
 
-	for (i = 0; buf[i] != '\0'; i++)
-		if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
+	for (ll = 0; buf[ll] != '\0'; l++)
+		if (buf[ll] == '#' && (!ll || buf[ll - 1] == ' '))
 		{
-			buf[i] = '\0';
+			buf[ll] = '\0';
 			break;
 		}
 }
