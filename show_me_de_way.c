@@ -13,7 +13,7 @@ char *show_me_de_way(void)
 
 	while (*ev)
 	{
-		if (_strncmp(*ev, "PATH=", 5) == 0)
+		if (_strcmp(*ev, "PATH=", 5) == 0)
 		{
 			de_way = *ev;
 			while (*de_way && i < 5)

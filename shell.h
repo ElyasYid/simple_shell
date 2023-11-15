@@ -16,11 +16,11 @@ struct builtin
 	char *exit;
 } builtin;
 
-// environment variables
+/* environment variables */
 extern char **habitat;
 extern __sighandler_t signal(int __sig, __sighandler_t __handler);
 
-//shell function prototypes
+/*shell function prototypes*/
 int build_builtin(char **argv, char *buffy);
 void exit_mando(char **argv, char *buffy);
 char *extra_way(char *way, char *mando);
@@ -31,8 +31,9 @@ void the_signal(int pop);
 char *show_me_de_way(void);
 void print_env(void);
 char **split_it(char *buffy);
+char *found_de_way(char **de_way, char *mando);
 
-//custom prnt and string prototypes
+/*custom prnt and string prototypes*/
 int _putchar(char c);
 int print_s(char *s);
 char *_strchr(char *s, char c);
@@ -40,4 +41,4 @@ char *_strdup(char *str);
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
 
-
+#endif

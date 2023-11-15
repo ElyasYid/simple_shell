@@ -30,7 +30,7 @@ int main(int argc, char *argv[], char *envp[])
 		write(STDOUT_FILENO, "SHello> ", 8);
 		lineq = getline(&buffy, &buffq, stdin);
 
-		if (linq < 0)
+		if (lineq < 0)
 			break;
 		if (buffy[lineq - 1] == '\n')
 			buffy[lineq - 1] = '\0';

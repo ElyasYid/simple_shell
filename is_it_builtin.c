@@ -9,7 +9,7 @@
 
 int is_it_builtin(char **comm, char *buff)
 {
-	if (builtin_executer(comm, buff))
+	if (build_builtin(comm, buff))
 		return (1);
 	else if (**comm == '/')
 	{
